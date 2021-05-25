@@ -1,8 +1,18 @@
 from math import isqrt
+import time
 
 #Crible d'Eratosthène
 
+def temps (f, n):
+    """Permet de calculer le temps d'execution d'une fonction f
+    avec une entrée n"""
+    a = time.time()
+    f(n)
+    return time.time()-a
+
+
 def eratosthene(n):
+    """Implémentation du crible d'Eratosthène"""
     if n < 2:
         return []
     is_prime = [True]*n
