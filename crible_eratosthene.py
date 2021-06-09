@@ -1,5 +1,6 @@
 from math import isqrt
 import time
+import numpy as np
 
 #Crible d'Eratosthène
 
@@ -23,5 +24,6 @@ def eratosthene(n):
             for x in range(i**2, n, i):
                 is_prime[x]= False
     
-    return [i for i in range(n) if is_prime[i]]
+    return np.array([i for i in range(n) if is_prime[i]])
+
     
