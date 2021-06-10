@@ -1,5 +1,14 @@
+def floyd(f,a):
+    """Algorithme de Floyd qui renvoie un couple (i,2i) tel que x_i = x_2i = x
+    avec (x_n) la suite def par x_0= a et x_(n+1) = f(x_n) """
+    i,x,y=1,f(a),f(f(a))
+    while x != y:
+        i,x,y= i+1, f(x),f(f(y))
+    return i,2*i
+
 
 def pgcd(a, b):
+    """Calcul de PGCD(a,b) via l'algorithme d'euclide"""
     if a<b:
         return pgcd(b,a)
     if a == 0:
@@ -17,8 +26,8 @@ def pollards_rho(n):
         x = f(x); y = f(f(y))
         d = pgcd(abs(x-y), n)
     if d != n: return d
+    else: print('Echec')
 
-n = 47508355408452438672873207975244607143697401672601919005182981061393486991065174351724507009558369983282837049901
-n= 60592086
+n= 2**128 +1
 p = pollards_rho(n)
 print ('{} = {} * {}'.format(n, p, n/p))

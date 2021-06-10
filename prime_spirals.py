@@ -15,6 +15,6 @@ def create_plot(nums, figsize=8, s=None):
     plt.title("Spirale des nombres premiers")
     plt.show()
 
-#primes = eratosthene(10**6)
-nums = np.array(list(range(10**4)))
-create_plot(nums, s=0.15)
+primes = eratosthene(10**4)
+#nums = np.array(list(range(10**4)))
+create_plot(primes, s=0.15)
