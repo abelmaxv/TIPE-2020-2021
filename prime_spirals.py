@@ -1,7 +1,7 @@
-import math
 from crible_eratosthene import eratosthene
 import numpy as np
 import matplotlib.pyplot as plt
+plt.style.use('dark_background')
 
 
 def pol_to_cart(n):
@@ -16,4 +16,5 @@ def create_plot(nums, figsize=8, s=None):
     plt.show()
 
 primes = eratosthene(10**5)
+# nums = np.array(list(range(10**4)))
 create_plot(primes, s=0.15)
