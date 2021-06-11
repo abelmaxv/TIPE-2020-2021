@@ -20,11 +20,13 @@ def pgcd(a, b):
 
 
 def pollards_rho(n):
-    x = 2; y = 2; d = 1
-    f = lambda x: (x**2 + 1) % n
+    x = 3; y = 3; d = 1
+    f = lambda x: (x**512 + 1) % n
+    
     while d == 1:
         x = f(x); y = f(f(y))
         d = pgcd(abs(x-y), n)
+        
     if d != n: return d
     else: print('Echec')
 
