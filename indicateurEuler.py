@@ -4,6 +4,7 @@ import numpy as np
 plt.style.use('dark_background')
 
 def phi(n):
+    """Indicateur d'Euler"""
     L = eratosthene(n)
     c = 1
     for i in range(len(L)):
