@@ -19,17 +19,19 @@ def pgcd(a, b):
         return pgcd(b,a%b)
 
 
-def pollards_rho(n):
-    x = 3; y = 3; d = 1
-    f = lambda x: (x**512 + 1) % n
+def pollard_rho(n):
+    """Algorithme de factorisation rho de Pollard"""
+    x = 2; y = 2; d = 1
+    f = lambda x: (x**2 + 1) % n
     
     while d == 1:
         x = f(x); y = f(f(y))
         d = pgcd(abs(x-y), n)
         
-    if d != n: return d
+    if d != n: return d, n//d
     else: print('Echec')
 
-n= 2**128 +1
-p = pollards_rho(n)
-print ('{} = {} * {}'.format(n, p, n/p))
+m61 = 2**61-1
+m31 = 2**31-1
+n= m61*m31
+p,q = pollard_rho(n)
